@@ -1720,7 +1720,81 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="sect2">
 <h3 id="_오늘의_추천_동아리"><a class="link" href="#_오늘의_추천_동아리">오늘의 추천 동아리</a></h3>
-
+<div class="sect4">
+<h5 id="_get_clubrandom"><a class="link" href="#_get_clubrandom">Get - /club/random</a></h5>
+<div class="sect5">
+<h6 id="_get_clubrandom_query_parameters"><a class="link" href="#_get_clubrandom_query_parameters">Query parameters</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+<th class="tableblock halign-left valign-top">필수여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>campus</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 캠퍼스</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/campus-type.html" class="popup">캠퍼스 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 동아리 종류</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/club-type-null.html" class="\"popup\"">동아리 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>belongs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 동아리 분과</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/belongs-null.html" class="popup">분과 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_get_clubrandom_response_fields"><a class="link" href="#_get_clubrandom_response_fields">Response fields</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[]id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 Id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[]name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 이름</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정상적인 클럽 SKKULOL0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
