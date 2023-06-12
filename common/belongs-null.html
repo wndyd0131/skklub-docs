@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
-<title>SKklub API</title>
+<title>Untitled</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,397 +436,98 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/github.min.css">
-<script>
-  function ready(callbackFunc) {
-    if (document.readyState !== 'loading') {
-      // Document is already ready, call the callback directly
-      callbackFunc();
-    } else if (document.addEventListener) {
-      // All modern browsers to register DOMContentLoaded
-      document.addEventListener('DOMContentLoaded', callbackFunc);
-    } else {
-      // Old IE browsers
-      document.attachEvent('onreadystatechange', function () {
-        if (document.readyState === 'complete') {
-          callbackFunc();
-        }
-      });
-    }
-  }
-
-  function openPopup(event) {
-
-    const target = event.target;
-    if (target.className !== "popup") {
-      return;
-    }
-
-    event.preventDefault();
-    const screenX = event.screenX;
-    const screenY = event.screenY;
-    window.open(target.href, target.text, `left=${screenX}, top=${screenY}, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no`);
-  }
-
-  ready(function () {
-    const el = document.getElementById("content");
-    el.addEventListener("click", event => openPopup(event), false);
-  });
-</script>
 </head>
-<body class="book toc2 toc-left">
+<body class="book">
 <div id="header">
-<h1>SKklub API</h1>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel0">
-<li><a href="#_club_api">Club API</a>
-<ul class="sectlevel1">
-<li><a href="#_create">Create</a>
-<ul class="sectlevel2">
-<li><a href="#_동아리_생성">동아리 생성</a></li>
-<li><a href="#_활동_사진_추가">활동 사진 추가</a></li>
-</ul>
-</li>
-<li><a href="#_read">Read</a>
-<ul class="sectlevel2">
-<li><a href="#_동아리_세부_조회">동아리 세부 조회</a></li>
-<li><a href="#_동아리_프리뷰_조회">동아리 프리뷰 조회</a></li>
-<li><a href="#_이름_검색완전_일치">이름 검색(완전 일치)</a></li>
-<li><a href="#_이름_검색부분_일치">이름 검색(부분 일치)</a></li>
-<li><a href="#_오늘의_추천_동아리">오늘의 추천 동아리</a></li>
-</ul>
-</li>
-<li><a href="#_update">Update</a>
-<ul class="sectlevel2">
-<li><a href="#_동아리_정보_수정">동아리 정보 수정</a></li>
-</ul>
-</li>
-<li><a href="#_delete">Delete</a>
-<ul class="sectlevel2">
-<li><a href="#_동아리_삭제">동아리 삭제</a></li>
-<li><a href="#_동아리_삭제_취소복구">동아리 삭제 취소(복구)</a></li>
-<li><a href="#_특정_활동_사진_삭제">특정 활동 사진 삭제</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
 </div>
 <div id="content">
-<h1 id="_club_api" class="sect0"><a class="link" href="#_club_api">Club API</a></h1>
-<div class="sect1">
-<h2 id="_create"><a class="link" href="#_create">Create</a></h2>
+<div id="preamble">
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_동아리_생성"><a class="link" href="#_동아리_생성">동아리 생성</a></h3>
-<div class="sect4">
-<h5 id="_post_club"><a class="link" href="#_post_club">Post - /club</a></h5>
-<div class="sect5">
-<h6 id="_post_club_request_parts"><a class="link" href="#_post_club_request_parts">Request parts</a></h6>
-<table class="tableblock frame-all grid-all stretch">
+<table id="seoul-belongs" class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 100%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">필수여부</th>
+<th class="tableblock halign-left valign-top">명륜 분과</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>logo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 로고</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>전체</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>평면예술</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>연행예술</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>봉사</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>취미교양</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>스포츠</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>종교분과</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>학술분과</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>인문사회</code></p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect5">
-<h6 id="_post_club_query_parameters"><a class="link" href="#_post_club_query_parameters">Query parameters</a></h6>
-<table class="tableblock frame-all grid-all stretch">
+<table id="suwon-belongs" class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 100%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">예시</th>
-<th class="tableblock halign-left valign-top">필수여부</th>
+<th class="tableblock halign-left valign-top">율전 분과</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 이름</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">클럽 SKKULOL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>전체</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>campus</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 캠퍼스</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/campus-type.html" class="popup">캠퍼스 종류</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>연행예술</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubType</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 동아리 종류</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/club-type.html" class="popup">동아리 종류</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>평면예술</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>belongs</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 동아리 분과</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/belongs.html" class="popup">분과 종류</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>과학기술</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>briefActivityDescription</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 활동 설명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E-SPORTS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>취미교양</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activityDescription</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">자세한 활동 설명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1. 열심히 참여하면 됩니다 2. 그냥 게임만 잘 하면 됩니다.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>사회</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubDescription</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">자세한 동아리 설명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">여기가 어떤 동아리냐면요, 페이커가 될 수 있게 해주는 동아리입니다^^</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>종교</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>establishDate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">설립 연도</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2023</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>학술</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>headLine</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">한줄 소개</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">명륜 게임 동아리입니다</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mandatoryActivatePeriod</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">의무 활동 기간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4학기</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>memberAmount</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 인원</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">60</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>regularMeetingTime</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">정규 모임 시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Thursday 19:00</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>roomLocation</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 방 위치</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">학생회관 80210</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>webLink1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">관련 사이트 주소 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">www.skklol.edu</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>webLink2</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">관련 사이트 주소 2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">skklol.com</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>건강체육</code></p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect5">
-<h6 id="_post_club_response_fields"><a class="link" href="#_post_club_response_fields">Response fields</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 아이디</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">동아리명</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_활동_사진_추가"><a class="link" href="#_활동_사진_추가">활동 사진 추가</a></h3>
-<div class="sect4">
-<h5 id="_post_clubclubidactivityimage"><a class="link" href="#_post_clubclubidactivityimage">Post - /club/{clubId}/activityImage</a></h5>
-<div class="sect5">
-<h6 id="_post_clubclubidactivityimage_path_parameters"><a class="link" href="#_post_clubclubidactivityimage_path_parameters">Path parameters</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. /club/{clubId}/activityImage</caption>
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubId</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 ID</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect5">
-<h6 id="_post_clubclubidactivityimage_request_parts"><a class="link" href="#_post_clubclubidactivityimage_request_parts">Request parts</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">설명</th>
-<th class="tableblock halign-left valign-top">필수여부</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activityImages</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">활동 사진</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect5">
-<h6 id="_post_clubclubidactivityimage_response_fields"><a class="link" href="#_post_clubclubidactivityimage_response_fields">Response fields</a></h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">변수명</th>
-<th class="tableblock halign-left valign-top">설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 ID</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 이름</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_read"><a class="link" href="#_read">Read</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_동아리_세부_조회"><a class="link" href="#_동아리_세부_조회">동아리 세부 조회</a></h3>
-
-</div>
-<div class="sect2">
-<h3 id="_동아리_프리뷰_조회"><a class="link" href="#_동아리_프리뷰_조회">동아리 프리뷰 조회</a></h3>
-
-</div>
-<div class="sect2">
-<h3 id="_이름_검색완전_일치"><a class="link" href="#_이름_검색완전_일치">이름 검색(완전 일치)</a></h3>
-
-</div>
-<div class="sect2">
-<h3 id="_이름_검색부분_일치"><a class="link" href="#_이름_검색부분_일치">이름 검색(부분 일치)</a></h3>
-
-</div>
-<div class="sect2">
-<h3 id="_오늘의_추천_동아리"><a class="link" href="#_오늘의_추천_동아리">오늘의 추천 동아리</a></h3>
-
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_update"><a class="link" href="#_update">Update</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_동아리_정보_수정"><a class="link" href="#_동아리_정보_수정">동아리 정보 수정</a></h3>
-
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_delete"><a class="link" href="#_delete">Delete</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_동아리_삭제"><a class="link" href="#_동아리_삭제">동아리 삭제</a></h3>
-
-</div>
-<div class="sect2">
-<h3 id="_동아리_삭제_취소복구"><a class="link" href="#_동아리_삭제_취소복구">동아리 삭제 취소(복구)</a></h3>
-
-</div>
-<div class="sect2">
-<h3 id="_특정_활동_사진_삭제"><a class="link" href="#_특정_활동_사진_삭제">특정 활동 사진 삭제</a></h3>
-
-</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-05-30 12:51:51 +0900
+Last updated 2023-06-10 18:19:10 +0900
 </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
-<script>
-if (!hljs.initHighlighting.called) {
-  hljs.initHighlighting.called = true
-  ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) { hljs.highlightBlock(el) })
-}
-</script>
 </body>
 </html>
