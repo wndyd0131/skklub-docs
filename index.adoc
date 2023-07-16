@@ -95,6 +95,7 @@ include::adocs/Recruit-Delete.adoc[]
 == Create
 
 === 공지 등록
+include::adocs/Notice-Create.adoc[]
 
 === 공지 파일 추가(초기 등록 포함)
 include::adocs/ExtraFile-append.adoc[]
