@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.18">
+<meta name="generator" content="Asciidoctor 2.0.20">
 <title>SKklub API</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -208,13 +208,10 @@ table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
 .admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
-.exampleblock>.content>:first-child{margin-top:0}
-.exampleblock>.content>:last-child{margin-bottom:0}
 .sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
-.sidebarblock>:first-child{margin-top:0}
-.sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
-.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
 .literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
@@ -393,7 +390,7 @@ b.conum *{color:inherit!important}
 dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
 h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
 p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -526,6 +523,36 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_모집_정보_등록">모집 정보 등록</a></li>
 <li><a href="#_모집_정보_수정">모집 정보 수정</a></li>
 <li><a href="#_모집_정보_삭제">모집 정보 삭제</a></li>
+</ul>
+</li>
+<li><a href="#_notice_api">Notice API</a>
+<ul class="sectlevel1">
+<li><a href="#_create_2">Create</a>
+<ul class="sectlevel2">
+<li><a href="#_공지_등록">공지 등록</a></li>
+<li><a href="#_공지_파일_추가초기_등록_포함">공지 파일 추가(초기 등록 포함)</a></li>
+</ul>
+</li>
+<li><a href="#_read_2">Read</a>
+<ul class="sectlevel2">
+<li><a href="#_공지_세부_조회">공지 세부 조회</a></li>
+<li><a href="#_공지_썸네일_카드_조회">공지 썸네일 카드 조회</a></li>
+<li><a href="#_공지_목록_조회_작성자_검색">공지 목록 조회 (작성자 검색)</a></li>
+<li><a href="#_공지_제목으로_검색">공지 제목으로 검색</a></li>
+</ul>
+</li>
+<li><a href="#_update_2">Update</a>
+<ul class="sectlevel2">
+<li><a href="#_공지_수정">공지 수정</a></li>
+<li><a href="#_썸네일_변경">썸네일 변경</a></li>
+</ul>
+</li>
+<li><a href="#_delete_2">Delete</a>
+<ul class="sectlevel2">
+<li><a href="#_공지_삭제">공지 삭제</a></li>
+<li><a href="#_특정_첨부_파일_삭제">특정 첨부 파일 삭제</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -749,7 +776,7 @@ user logged out successfully</code></pre>
 <h3 id="_token_refresh"><a class="link" href="#_token_refresh">Token Refresh</a></h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /refresh?_csrf=pmFqPKiCc_X-yGVH09pNl3U8w_zKX_KG6I_vB-XckQ8GXYa7lgNdWZ27R8fTrlQj4vd59UIM7p79bMar3LrfZoG9oz1jPrON HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /refresh?_csrf=3F9kHgu9Y4i1NC_x4eUsT2QA-1PotNCzb7haQLvJRzRo--Pa5GkFKzjfBr-YVxeXgMgYK1Y11jHf1-eeXoE8cdmtdQxfyNS4 HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer access_token
 Refresh-Token: Bearer refresh_token
@@ -1245,7 +1272,7 @@ X-Frame-Options: DENY</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>logo.bytes</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">로고 바이트(파일)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">logoBytes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">바이트 배열</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>activityImages[].id</code></p></td>
@@ -1263,7 +1290,7 @@ X-Frame-Options: DENY</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>activityImages.[]bytes</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">활동 사진 바이트(파일)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">activityImgBytes0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">바이트 배열</p></td>
 </tr>
 </tbody>
 </table>
@@ -1389,7 +1416,7 @@ X-Frame-Options: DENY</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].logo.bytes</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BYTES</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">로고 바이트</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">logoBytes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">바이트 배열</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.sort.empty</code></p></td>
@@ -1719,7 +1746,7 @@ X-Frame-Options: DENY</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>logo.bytes</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">로고 바이트(파일)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">logoBytes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">바이트 배열</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>activityImages[].id</code></p></td>
@@ -1737,7 +1764,7 @@ X-Frame-Options: DENY</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>activityImages.[]bytes</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">활동 사진 바이트(파일)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">activityImgBytes0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">바이트 배열</p></td>
 </tr>
 </tbody>
 </table>
@@ -2082,9 +2109,9 @@ X-Frame-Options: DENY</code></pre>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubId</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">대상 동아리 ID</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">수정 대상 공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
 </tr>
 </tbody>
 </table>
@@ -2108,94 +2135,16 @@ X-Frame-Options: DENY</code></pre>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 이름</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">클럽 SKKULOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">제목(변경 없을 시 기존꺼 보내주세요)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">updateTitle</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>campus</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 캠퍼스</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/campus-type.html" class="popup">캠퍼스 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">글 내용(변경 없을 시 기존꺼 보내주세요)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">updateContent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubType</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 동아리 종류</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/club-type.html" class="popup">동아리 종류</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>belongs</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 동아리 분과</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/belongs.html" class="popup">분과 종류</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>briefActivityDescription</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 활동 설명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E-SPORTS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activityDescription</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">자세한 활동 설명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1. 열심히 참여하면 됩니다 2. 그냥 게임만 잘 하면 됩니다.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubDescription</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">자세한 동아리 설명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">여기가 어떤 동아리냐면요, 페이커가 될 수 있게 해주는 동아리입니다^^</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>establishDate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">설립 연도, Integer(Min 1398)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2023</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>headLine</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">한줄 소개</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">명륜 게임 동아리입니다</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mandatoryActivatePeriod</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">의무 활동 기간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4학기</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>memberAmount</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 인원</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">60</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>regularMeetingTime</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">정규 모임 시간</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Thursday 19:00</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>roomLocation</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 방 위치</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">학생회관 80210</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>webLink1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">관련 사이트 주소 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">www.skklol.edu</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>webLink2</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">관련 사이트 주소 2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">skklol.com</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
@@ -2221,14 +2170,14 @@ X-Frame-Options: DENY</code></pre>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">수정된 동아리 ID</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">수정 대상 공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">수정된 동아리 이름</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">클럽 SKKULOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">변경 반영 이후 공지 제목</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">updateTitle</p></td>
 </tr>
 </tbody>
 </table>
@@ -2772,10 +2721,1292 @@ X-Frame-Options: DENY</code></pre>
 </div>
 </div>
 </div>
+<h1 id="_notice_api" class="sect0"><a class="link" href="#_notice_api">Notice API</a></h1>
+<div class="sect1">
+<h2 id="_create_2"><a class="link" href="#_create_2">Create</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_공지_등록"><a class="link" href="#_공지_등록">공지 등록</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_공지_파일_추가초기_등록_포함"><a class="link" href="#_공지_파일_추가초기_등록_포함">공지 파일 추가(초기 등록 포함)</a></h3>
+<div class="sect4">
+<h5 id="_post_noticenoticeidfile"><a class="link" href="#_post_noticenoticeidfile">Post - /notice/{noticeId}/file</a></h5>
+<div class="sect5">
+<h6 id="_post_noticenoticeidfile_path_parameters"><a class="link" href="#_post_noticenoticeidfile_path_parameters">Path parameters</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_post_noticenoticeidfile_request_parts"><a class="link" href="#_post_noticenoticeidfile_request_parts">Request parts</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">필수여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>files</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">첨부 파일(형식 제한 없음)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_post_noticenoticeidfile_response_fields"><a class="link" href="#_post_noticenoticeidfile_response_fields">Response fields</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fileCnt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">첨부된 파일 개수</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_read_2"><a class="link" href="#_read_2">Read</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_공지_세부_조회"><a class="link" href="#_공지_세부_조회">공지 세부 조회</a></h3>
+<div class="sect4">
+<h5 id="_get_noticenoticeid"><a class="link" href="#_get_noticenoticeid">Get - /notice/{noticeId}</a></h5>
+<div class="sect5">
+<h6 id="_get_noticenoticeid_path_parameters"><a class="link" href="#_get_noticenoticeid_path_parameters">Path parameters</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_get_noticenoticeid_response_fields"><a class="link" href="#_get_noticenoticeid_response_fields">Response fields</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지사항 제목</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test Title</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지사항 내용</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test Content</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>writerName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">작성자</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">홍길동</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>createdAt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">작성일자</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023-07-16T13:43:03.833136100</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>preNotice.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">이전 공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>preNotice.title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">이전 공지 제목</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test Pre Title</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>postNotice.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">다음 공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>postNotice.title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">다음 공지 제목</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test Post Title</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>extraFileNames[].id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">첨부 파일 식별용 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>extraFileNames[].originalName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">첨부 파일 원 파일명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.pdf</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>extraFileNames[].savedName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">첨부 파일 S3 저장명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eb0808d7-83ee-4ee6-aa1e-e0359dcb54b3.hwp</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_공지_썸네일_카드_조회"><a class="link" href="#_공지_썸네일_카드_조회">공지 썸네일 카드 조회</a></h3>
+<div class="sect4">
+<h5 id="_get_noticeprevthumbnail"><a class="link" href="#_get_noticeprevthumbnail">Get - /notice/prev/thumbnail</a></h5>
+<div class="sect5">
+<h6 id="_get_noticeprevthumbnail_query_parameters"><a class="link" href="#_get_noticeprevthumbnail_query_parameters">Query parameters</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+<th class="tableblock halign-left valign-top">필수여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 한 페이지 크기</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 20</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>page</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 요청 페이지 번호(시작 0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 0</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 정렬(기본 시간순)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/sorting.html" class="popup">정렬</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_get_noticeprevthumbnail_response_fields"><a class="link" href="#_get_noticeprevthumbnail_response_fields">Response fields</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지 아이디</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지 제목</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test title0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].content</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지 내용</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test content 0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].createdAt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">작성일자</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-MM-dd&#8217;T&#8217;HH:mm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].thumbnail.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">썸네일 아이디</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].thumbnail.fileName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">썸네일 원본 파일명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test_Thumb0.jpg</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].thumbnail.bytes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BYTES</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">썸네일 바이트</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">바이트 배열</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.sort.empty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정렬 상태 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.sort.sorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정렬 상태 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.sort.unsorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정렬 상태 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.offset</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 첫번째 요소의 전체 순번</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.pageNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Page Index (start 0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.pageSize</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elements Count Per Page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.paged</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이징 여부 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.unpaged</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이징 여부 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>totalPages</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">전체 페이지 수</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>totalElements</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">요소 전체 개수</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>first</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">첫번째 페이지인지?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>last</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">마지막 페이지인지?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>empty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">빈 페이지?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort.empty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort.sorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort.unsorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>numberOfElements</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_공지_목록_조회_작성자_검색"><a class="link" href="#_공지_목록_조회_작성자_검색">공지 목록 조회 (작성자 검색)</a></h3>
+<div class="sect4">
+<h5 id="_get_noticeprev"><a class="link" href="#_get_noticeprev">Get - /notice/prev</a></h5>
+<div class="sect5">
+<h6 id="_role이_null_일시_전체_조회"><a class="link" href="#_role이_null_일시_전체_조회">role이 NULL 일시 전체 조회</a></h6>
+<div class="sect6">
+<h7 id="_role이_null_일시_전체_조회_query_parameters"><a class="link" href="#_role이_null_일시_전체_조회_query_parameters">Query parameters</a></h7>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+<th class="tableblock halign-left valign-top">필수여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>role</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">검색할 유저 - 권한</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/role_admin.html" class="popup">어드민 권한</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 한 페이지 크기</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 20</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>page</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 요청 페이지 번호(시작 0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 0</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 정렬(기본 시간순)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/sorting.html" class="popup">정렬</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect6">
+<h7 id="_role이_null_일시_전체_조회_response_fields"><a class="link" href="#_role이_null_일시_전체_조회_response_fields">Response fields</a></h7>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지 아이디</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지 제목</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test title0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].writerName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">작성자</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test name 0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].createdAt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">작성일자</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-MM-dd&#8217;T&#8217;HH:mm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.sort.empty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정렬 상태 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.sort.sorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정렬 상태 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.sort.unsorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정렬 상태 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.offset</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 첫번째 요소의 전체 순번</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.pageNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Page Index (start 0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.pageSize</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elements Count Per Page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.paged</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이징 여부 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.unpaged</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이징 여부 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>totalPages</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">전체 페이지 수</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>totalElements</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">요소 전체 개수</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>first</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">첫번째 페이지인지?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>last</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">마지막 페이지인지?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>empty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">빈 페이지?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort.empty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort.sorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort.unsorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>numberOfElements</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_공지_제목으로_검색"><a class="link" href="#_공지_제목으로_검색">공지 제목으로 검색</a></h3>
+<div class="sect4">
+<h5 id="_get_noticeprevsearchtitle"><a class="link" href="#_get_noticeprevsearchtitle">Get - /notice/prev/search/title</a></h5>
+<div class="sect5">
+<h6 id="_get_noticeprevsearchtitle_query_parameters"><a class="link" href="#_get_noticeprevsearchtitle_query_parameters">Query parameters</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+<th class="tableblock halign-left valign-top">필수여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">제목 검색 키워드</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'test' : 'testabcdef' or 'abctestdef' or 'abcdeftest'</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 한 페이지 크기</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 20</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>page</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 요청 페이지 번호(시작 0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default : 0</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 정보 - 정렬(기본 시간순)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/sorting.html" class="popup">정렬</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_get_noticeprevsearchtitle_response_fields"><a class="link" href="#_get_noticeprevsearchtitle_response_fields">Response fields</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지 아이디</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">공지 제목</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test title</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].writerName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">작성자</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test User</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].createdAt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">작성일자</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-MM-dd&#8217;T&#8217;HH:mm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.sort.empty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정렬 상태 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.sort.sorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정렬 상태 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.sort.unsorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정렬 상태 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.offset</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이지 첫번째 요소의 전체 순번</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.pageNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Page Index (start 0)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.pageSize</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elements Count Per Page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.paged</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이징 여부 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.unpaged</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">페이징 여부 - true인 필드만 확인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>totalPages</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">전체 페이지 수</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>totalElements</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">요소 전체 개수</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>first</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">첫번째 페이지인지?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>last</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">마지막 페이지인지?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>empty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">빈 페이지?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort.empty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort.sorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort.unsorted</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>numberOfElements</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">무시해줭..</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_update_2"><a class="link" href="#_update_2">Update</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_공지_수정"><a class="link" href="#_공지_수정">공지 수정</a></h3>
+<div class="sect4">
+<h5 id="_patch_noticenoticeid"><a class="link" href="#_patch_noticenoticeid">Patch - /notice/{noticeId}</a></h5>
+<div class="sect5">
+<h6 id="_patch_noticenoticeid_path_parameters"><a class="link" href="#_patch_noticenoticeid_path_parameters">Path parameters</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">대상 동아리 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_patch_noticenoticeid_query_parameters"><a class="link" href="#_patch_noticenoticeid_query_parameters">Query parameters</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+<th class="tableblock halign-left valign-top">필수여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 이름</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">클럽 SKKULOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>campus</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 캠퍼스</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/campus-type.html" class="popup">캠퍼스 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 동아리 종류</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/club-type.html" class="popup">동아리 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>belongs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 동아리 분과</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/belongs.html" class="popup">분과 종류</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>briefActivityDescription</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 활동 설명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E-SPORTS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activityDescription</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">자세한 활동 설명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. 열심히 참여하면 됩니다 2. 그냥 게임만 잘 하면 됩니다.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubDescription</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">자세한 동아리 설명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">여기가 어떤 동아리냐면요, 페이커가 될 수 있게 해주는 동아리입니다^^</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>establishDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">설립 연도, Integer(Min 1398)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>headLine</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">한줄 소개</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">명륜 게임 동아리입니다</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mandatoryActivatePeriod</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">의무 활동 기간</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4학기</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>memberAmount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 인원</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>regularMeetingTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정규 모임 시간</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Thursday 19:00</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>roomLocation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 방 위치</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">학생회관 80210</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>webLink1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">관련 사이트 주소 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">www.skklol.edu</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>webLink2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">관련 사이트 주소 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">skklol.com</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_patch_noticenoticeid_response_fields"><a class="link" href="#_patch_noticenoticeid_response_fields">Response fields</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">수정된 동아리 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">수정된 동아리 이름</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">클럽 SKKULOL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_썸네일_변경"><a class="link" href="#_썸네일_변경">썸네일 변경</a></h3>
+<div class="sect4">
+<h5 id="_post_noticenoticeidthumbnail"><a class="link" href="#_post_noticenoticeidthumbnail">Post - /notice/{noticeId}/thumbnail</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="_기술의_한계로_post입니다_흑흑_patch아님_2"><a class="link" href="#_기술의_한계로_post입니다_흑흑_patch아님_2">기술의 한계로 Post입니다 흑흑 (Patch아님)</a></h5>
+<div class="sect5">
+<h6 id="_기술의_한계로_post입니다_흑흑_patch아님_2_path_parameters"><a class="link" href="#_기술의_한계로_post입니다_흑흑_patch아님_2_path_parameters">Path parameters</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">변경 대상 공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_기술의_한계로_post입니다_흑흑_patch아님_2_request_parts"><a class="link" href="#_기술의_한계로_post입니다_흑흑_patch아님_2_request_parts">Request parts</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">필수여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>thumbnailFile</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">변경될 썸네일 파일</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_기술의_한계로_post입니다_흑흑_patch아님_2_response_fields"><a class="link" href="#_기술의_한계로_post입니다_흑흑_patch아님_2_response_fields">Response fields</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">변경된 공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletedFileName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">삭제된 썸네일 파일명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oldTestThumb.png</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>changedFileName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">새로 등록된 썸네일 파일명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">testThumb.png</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_delete_2"><a class="link" href="#_delete_2">Delete</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_공지_삭제"><a class="link" href="#_공지_삭제">공지 삭제</a></h3>
+<div class="sect4">
+<h5 id="_delete_noticenoticeid"><a class="link" href="#_delete_noticenoticeid">Delete - /notice/{noticeId}</a></h5>
+<div class="sect5">
+<h6 id="_delete_noticenoticeid_path_parameters"><a class="link" href="#_delete_noticenoticeid_path_parameters">Path parameters</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">삭제할 공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_delete_noticenoticeid_response_fields"><a class="link" href="#_delete_noticenoticeid_response_fields">Response fields</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">삭제된 공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">삭제된 공지 제목</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test notice Title</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_특정_첨부_파일_삭제"><a class="link" href="#_특정_첨부_파일_삭제">특정 첨부 파일 삭제</a></h3>
+<div class="sect4">
+<h5 id="_delete_noticenoticeidfilename"><a class="link" href="#_delete_noticenoticeidfilename">Delete - /notice/{noticeId}/{fileName}</a></h5>
+<div class="sect5">
+<h6 id="_delete_noticenoticeidfilename_path_parameters"><a class="link" href="#_delete_noticenoticeidfilename_path_parameters">Path parameters</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">파일이 포함된 공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fileName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지우려는 파일 원본명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.pdf</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect5">
+<h6 id="_delete_noticenoticeidfilename_response_fields"><a class="link" href="#_delete_noticenoticeidfilename_response_fields">Response fields</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noticeId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">파일이 삭제된 공지 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletedFileName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지워진 파일 원본명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.pdf</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-06-21 16:58:54 +0900
+Last updated 2023-07-16 13:49:51 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

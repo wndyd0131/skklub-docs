@@ -11,27 +11,27 @@
 = Authentication API
 
 === 유저 회원가입
-include::{snippets}/user-join/http-request.adoc[]
-include::{snippets}/user-join/http-response.adoc[]
-include::{snippets}/user-join/query-parameters.adoc[]
+include::{snippets}/User-Join/http-request.adoc[]
+include::{snippets}/User-Join/http-response.adoc[]
+include::{snippets}/User-Join/query-parameters.adoc[]
 
 === 유저 로그인
-include::{snippets}/user-login/http-request.adoc[]
-include::{snippets}/user-login/http-response.adoc[]
-include::{snippets}/user-login/query-parameters.adoc[]
+include::{snippets}/User-Login/http-request.adoc[]
+include::{snippets}/User-Login/http-response.adoc[]
+include::{snippets}/User-Login/query-parameters.adoc[]
 
 === 유저 정보 수정
-include::{snippets}/user-update/http-request.adoc[]
-include::{snippets}/user-update/http-response.adoc[]
-include::{snippets}/user-update/query-parameters.adoc[]
+include::{snippets}/User-Update/http-request.adoc[]
+include::{snippets}/User-Update/http-response.adoc[]
+include::{snippets}/User-Update/query-parameters.adoc[]
 
 === 유저 로그아웃
-include::{snippets}/user-logout/http-request.adoc[]
-include::{snippets}/user-logout/http-response.adoc[]
+include::{snippets}/User-Logout/http-request.adoc[]
+include::{snippets}/User-Logout/http-response.adoc[]
 
 === Token Refresh
-include::{snippets}/refresh/http-request.adoc[]
-include::{snippets}/refresh/http-response.adoc[]
+include::{snippets}/RefreshToken-Refresh/http-request.adoc[]
+include::{snippets}/RefreshToken-Refresh/http-response.adoc[]
 
 = Club API
 
@@ -89,3 +89,43 @@ include::adocs/Recruit-Update.adoc[]
 
 === 모집 정보 삭제
 include::adocs/Recruit-Delete.adoc[]
+
+= Notice API
+
+== Create
+
+=== 공지 등록
+
+=== 공지 파일 추가(초기 등록 포함)
+include::adocs/ExtraFile-append.adoc[]
+
+== Read
+
+=== 공지 세부 조회
+include::adocs/Notice-Read-Detail.adoc[]
+
+=== 공지 썸네일 카드 조회
+include::adocs/Notice-Read-Thumbnail.adoc[]
+
+=== 공지 목록 조회 (작성자 검색)
+include::adocs/Notice-Read-List.adoc[]
+
+=== 공지 제목으로 검색
+include::adocs/Notice-Read-Title.adoc[]
+
+
+== Update
+
+=== 공지 수정
+include::adocs/Notice-Update.adoc[]
+
+=== 썸네일 변경
+include::adocs/Thumbnail-Update.adoc[]
+
+== Delete
+
+=== 공지 삭제
+include::adocs/Notice-Delete.adoc[]
+
+=== 특정 첨부 파일 삭제
+include::adocs/ExtraFile-Delete.adoc[]

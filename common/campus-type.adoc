@@ -2,4 +2,4 @@
 :icons: font
 
 [[campus-type]]
-include::{snippets}/club/code/campus-type.adoc[]
+include::{snippets}/code/club/campus-type.adoc[]

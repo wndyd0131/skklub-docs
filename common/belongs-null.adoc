@@ -2,7 +2,7 @@
 :icons: font
 
 [[seoul-belongs]]
-include::{snippets}/club/code/seoul-belongs-null.adoc[]
+include::{snippets}/code/club/seoul-belongs-null.adoc[]
 
 [[suwon-belongs]]
-include::{snippets}/club/code/suwon-belongs-null.adoc[]
+include::{snippets}/code/club/suwon-belongs-null.adoc[]

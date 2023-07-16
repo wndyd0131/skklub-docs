@@ -2,4 +2,4 @@
 :icons: font
 
 [[club-type]]
-include::{snippets}/club/code/club-type-null.adoc[]
+include::{snippets}/code/club/club-type-null.adoc[]
