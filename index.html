@@ -539,6 +539,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_공지_썸네일_카드_조회">공지 썸네일 카드 조회</a></li>
 <li><a href="#_공지_목록_조회_작성자_검색">공지 목록 조회 (작성자 검색)</a></li>
 <li><a href="#_공지_제목으로_검색">공지 제목으로 검색</a></li>
+<li><a href="#_첨부_파일_다운로드">첨부 파일 다운로드</a></li>
 </ul>
 </li>
 <li><a href="#_update_2">Update</a>
@@ -3589,6 +3590,49 @@ X-Frame-Options: DENY</code></pre>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_첨부_파일_다운로드"><a class="link" href="#_첨부_파일_다운로드">첨부 파일 다운로드</a></h3>
+<div class="sect4">
+<h5 id="_get_noticefile"><a class="link" href="#_get_noticefile">Get - /notice/file</a></h5>
+<div class="sect5">
+<h6 id="_get_noticefile_query_parameters"><a class="link" href="#_get_noticefile_query_parameters">Query parameters</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+<th class="tableblock halign-left valign-top">필수여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fileSavedName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">파일이 S3에 저장된 이름</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">002e73a5-511a-4315-a85d-6c40fb60.pdf</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_as_byte_array"><a class="link" href="#_response_as_byte_array">Response (As Byte Array)</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">Content-Type: application/octet-stream
+Content-Length: 파일 용량
+attachment : 원본 파일명</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -4006,7 +4050,7 @@ X-Frame-Options: DENY</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-07-16 13:49:51 +0900
+Last updated 2023-07-16 14:13:20 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

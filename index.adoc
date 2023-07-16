@@ -113,6 +113,9 @@ include::adocs/Notice-Read-List.adoc[]
 === 공지 제목으로 검색
 include::adocs/Notice-Read-Title.adoc[]
 
+=== 첨부 파일 다운로드
+include::adocs/ExtraFile-Read.adoc[]
+
 
 == Update
 
