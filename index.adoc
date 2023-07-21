@@ -68,6 +68,12 @@ include::adocs/Club-Update.adoc[]
 === 동아리 로고 수정
 include::adocs/Logo-Update.adoc[]
 
+=== 동아리 승격 (준중동 -> 중동)
+include::adocs/Club-Grade-Up.adoc[]
+
+=== 동아리 강등 (중동 -> 준중동)
+include::adocs/Club-Grade-Down.adoc[]
+
 == Delete
 
 === 동아리 삭제
@@ -125,6 +131,7 @@ include::adocs/Notice-Update.adoc[]
 
 === 썸네일 변경
 include::adocs/Thumbnail-Update.adoc[]
+
 
 == Delete
 

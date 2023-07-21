@@ -1,0 +1,2 @@
+===== Patch - /club/{clubId}/down
+operation::club/update/grade/down[snippets='path-parameters,response-fields']
