@@ -1,0 +1,2 @@
+===== Delete - /pending/{pendingClubId}/accept
+operation::pending/delete/accept[snippets='path-parameters,query-parameters,response-fields']

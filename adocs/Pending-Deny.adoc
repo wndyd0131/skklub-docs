@@ -1,0 +1,2 @@
+===== Delete - /pending/{pendingClubId}/deny
+operation::pending/delete/deny[snippets='path-parameters,response-fields']

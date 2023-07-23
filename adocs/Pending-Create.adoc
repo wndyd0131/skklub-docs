@@ -1,0 +1,2 @@
+===== Post - /pending
+operation::pending/create[snippets='query-parameters,response-fields']
