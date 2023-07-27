@@ -1,4 +1,4 @@
-===== Patch - /recruit/{recruitId}
+===== Patch - /recruit/{clubId}
 operation::recruit/update[snippets='path-parameters,query-parameters']
 
-===== Return Only RecruitId When Success
+===== Return Only Club ID When Success
