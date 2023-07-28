@@ -724,7 +724,7 @@ user logged out successfully</code></pre>
 <h3 id="_token_refresh"><a class="link" href="#_token_refresh">Token Refresh</a></h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /refresh?_csrf=cZga5CWr8Po_UN9fuuDDJhrTCbX6qAnBJ0Jq1J3RZKp3ZL46Q_l8hUPJwpgSNehs2833QnnlJNTDm2rsFSNSt6i1U5oVXIsP HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /refresh?_csrf=Lhrn_tKcezMIjbCp4hS1FNSRqRbJzb5MPzsw478cFlXHGHaSGi3fyuGvSgolvNXP0TmBJueohC75q99hCwIH0oYuL2b_LE6g HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer access_token
 Refresh-Token: Bearer refresh_token
@@ -1801,15 +1801,27 @@ X-Frame-Options: DENY</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">정상적인 클럽 SKKULOL0</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].campus</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 캠퍼스</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/campus-type.html" class="popup">캠퍼스 종류</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].clubType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 동아리 종류</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/club-type.html" class="popup">동아리 종류</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].belongs</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 활동 설명</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">취미교양</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 분과</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/belongs.html" class="popup">분과 종류</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].briefActivityDescription</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">클럽</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 활동 설명</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">E-SPORTS0</p></td>
 </tr>
 <tr>
@@ -2254,43 +2266,55 @@ X-Frame-Options: DENY</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].id</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">동아리 아이디</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].name</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">동아리 이름</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정상적인 클럽 SKKULOL0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].campus</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 캠퍼스</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/campus-type.html" class="popup">캠퍼스 종류</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].clubType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 동아리 종류</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/club-type.html" class="popup">동아리 종류</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].belongs</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 활동 설명</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 분과</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="common/belongs.html" class="popup">분과 종류</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].briefActivityDescription</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">클럽</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 활동 설명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E-SPORTS0</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].logo.id</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">로고 아이디</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].logo.fileName</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">로고 원본 파일명</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">logoOriginal0.png</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>content[].logo.bytes</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BYTES</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">로고 바이트</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">바이트 배열</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>pageable.sort.empty</code></p></td>
@@ -3640,7 +3664,7 @@ X-Frame-Options: DENY</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>createdAt</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">작성일자</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2023-07-26T19:01:49.943620600</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023-07-28T03:45:24.895412900</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>preNotice.id</code></p></td>
