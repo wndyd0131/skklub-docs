@@ -1,2 +1,3 @@
 ===== Get - /club/search/prevs
+===== When Keyword is Blank, Return Empty Page
 operation::club/get/prevs/search[snippets='query-parameters,response-fields']
