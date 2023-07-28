@@ -2,7 +2,7 @@
 :icons: font
 ==== 중첩 가능
 ==== 있든 없든 제일 마지막에 createdAt으로 정렬됨
-==== ex : sort = name, asc & sort = campus, desc
+==== ex : sort=name,asc&sort=campus,desc
 
 [[club-keyowrd]]
 include::{snippets}/code/sorting/notice-keyword.adoc[]
