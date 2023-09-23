@@ -1,0 +1,4 @@
+===== Get - /club/my
+===== User로 로그인 시 성공
+===== 상위 유저로 로그인 돼 있는 경우 실패
+operation::club/get/detail/my[snippets='response-fields']

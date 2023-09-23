@@ -503,6 +503,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_read">Read</a>
 <ul class="sectlevel2">
 <li><a href="#_동아리_세부_조회">동아리 세부 조회</a></li>
+<li><a href="#_내_동아리_조회">내 동아리 조회</a></li>
 <li><a href="#_동아리_프리뷰_조회_카테고리_선택">동아리 프리뷰 조회 - 카테고리 선택</a></li>
 <li><a href="#_이름_검색완전_일치">이름 검색(완전 일치)</a></li>
 <li><a href="#_이름_검색부분_일치">이름 검색(부분 일치)</a></li>
@@ -636,7 +637,7 @@ user logged in</code></pre>
 <h3 id="_유저_정보_수정"><a class="link" href="#_유저_정보_수정">유저 정보 수정</a></h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /user/0?password=$2a$10$W5YPj3ja1SjBhgg75ChEaO575Z.4F9s/ieJcDSilcWx52bNVh.7N.&amp;name=userName1&amp;contact=010-1111-1111 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /user/0?password=$2a$10$LiK8PGjMHjlVwo.pWmW9fuTPc0tc6CKto3qYL0acyZYFMAfIxuSmm&amp;name=userName1&amp;contact=010-1111-1111 HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer (access_token)
 Host: localhost:8080</code></pre>
@@ -676,7 +677,7 @@ Content-Length: 29
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>password</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">변경할 비밀번호</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">$2a$10$W5YPj3ja1SjBhgg75ChEaO575Z.4F9s/ieJcDSilcWx52bNVh.7N.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$2a$10$LiK8PGjMHjlVwo.pWmW9fuTPc0tc6CKto3qYL0acyZYFMAfIxuSmm</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">필수!!</p></td>
 </tr>
 <tr>
@@ -724,7 +725,7 @@ user logged out successfully</code></pre>
 <h3 id="_token_refresh"><a class="link" href="#_token_refresh">Token Refresh</a></h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /refresh?_csrf=aTtc-XwB3tUle9FT7kUFUCpCjFTdtFJUzPRk2kPbcLeYMVloUFplyxgwu7QIQuNj2mgxZUwmoTa-gmZ5-c1V7XbsFtb-B28N HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /refresh?_csrf=Jhq_BowIs-PQrwx-kyOEHtmws6BqLHee3wUDip7iuCFq3mJwFyvdM7Rt14H9nTVKpg6wLLiHnplaHEOzu2Y076mG3hII7QFH HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer access_token
 Refresh-Token: Bearer refresh_token
@@ -1508,6 +1509,221 @@ X-Frame-Options: DENY</code></pre>
 </div>
 <div class="sect5">
 <h6 id="_get_clubclubid_response_fields"><a class="link" href="#_get_clubclubid_response_fields">Response fields</a></h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">변수명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">설명</th>
+<th class="tableblock halign-left valign-top">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 Id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>campus</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 캠퍼스</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">명륜</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 동아리 종류</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">중앙동아리</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>belongs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 동아리 분과</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">취미교양</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>briefActivityDescription</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분류 - 활동 설명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E-SPORTS0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 이름</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정상적인 클럽 SKKULOL0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>headLine</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">한줄 소개</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">명륜 게임 동아리입니다0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>establishAt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">설립 연도</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>roomLocation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 방 위치</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">학생회관 802100</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>memberAmount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">동아리 인원</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>regularMeetingTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">정규 모임 시간</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Thursday 19:000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mandatoryActivatePeriod</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">의무 활동 기간</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4학기0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clubDescription</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">자세한 동아리 설명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sample About Club Description0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activityDescription</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">자세한 활동 설명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">example activity description 0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>webLink1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">관련 사이트 주소 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">www.skklol.com0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>webLink2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">관련 사이트 주소 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">www.skkulol.edu0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recruit.recruitStartAt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">모집 시작일 (* 상시 모집의 경우엔 NULL)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-MM-ddTHH:mm (null when not recruting)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recruit.recruitEndAt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">모집 종료일 (* 상시 모집의 경우엔 NULL)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-MM-ddTHH:mm (null when not recruting)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recruit.recruitQuota</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">모집 인원</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 ~ 30명 - Can Any Format(null when not recruting)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recruit.recruitProcessDescription</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">모집 절차 설명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test Recruit Format(null when not recruting)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recruit.recruitContact</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">모집 문의처</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">010-1234-1234 or <a href="mailto:recruit@asd.asd">recruit@asd.asd</a> - Can Any Format(null when not recruting)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recruit.recruitWebLink</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">모집 링크</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">form.goole.com - Can Any Format(null when not recruting)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>presidentName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">회장 이름</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">userName0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>presidentContact</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">회장 연락처</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">010-0000-0000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>logo.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INT64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">로고 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>logo.fileName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">로고 파일명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">logoOriginal0.png</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>logo.url</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">로고 리소스 주소</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://s3.ap-northeast-2.amazonaws.com/skklub.test/024f3d7b-0ae0-4011-8f3f-23637d10f3d4.jpg" class="bare">https://s3.ap-northeast-2.amazonaws.com/skklub.test/024f3d7b-0ae0-4011-8f3f-23637d10f3d4.jpg</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activityImages[].id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">활동 사진 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activityImages[].fileName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">활동 사진 파일명</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">activityOriginal0.png</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>activityImages.[]url</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">활동 사진 리소스 주소</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://s3.ap-northeast-2.amazonaws.com/skklub.test/024f3d7b-0ae0-4011-8f3f-23637d10f3d4.jpg" class="bare">https://s3.ap-northeast-2.amazonaws.com/skklub.test/024f3d7b-0ae0-4011-8f3f-23637d10f3d4.jpg</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_내_동아리_조회"><a class="link" href="#_내_동아리_조회">내 동아리 조회</a></h3>
+<div class="sect4">
+<h5 id="_get_clubmy"><a class="link" href="#_get_clubmy">Get - /club/my</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="_user로_로그인_시_성공"><a class="link" href="#_user로_로그인_시_성공">User로 로그인 시 성공</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="_상위_유저로_로그인_돼_있는_경우_실패"><a class="link" href="#_상위_유저로_로그인_돼_있는_경우_실패">상위 유저로 로그인 돼 있는 경우 실패</a></h5>
+<div class="sect5">
+<h6 id="_상위_유저로_로그인_돼_있는_경우_실패_response_fields"><a class="link" href="#_상위_유저로_로그인_돼_있는_경우_실패_response_fields">Response fields</a></h6>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3668,7 +3884,7 @@ X-Frame-Options: DENY</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>createdAt</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">STRING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">작성일자</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2023-09-04T21:37:09.936796100</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023-09-18T10:13:41.922477200</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>preNotice.id</code></p></td>
@@ -4987,7 +5203,7 @@ attachment : 원본 파일명</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-09-04 21:37:50 +0900
+Last updated 2023-09-23 15:43:00 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

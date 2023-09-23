@@ -54,6 +54,9 @@ include::adocs/Activity-Append.adoc[]
 === 동아리 세부 조회
 include::adocs/Club-Read-Detail.adoc[]
 
+=== 내 동아리 조회
+include::adocs/Club-Read-My.adoc[]
+
 === 동아리 프리뷰 조회 - 카테고리 선택
 include::adocs/Club-Read-Prev.adoc[]
 
