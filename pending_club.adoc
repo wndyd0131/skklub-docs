@@ -1,0 +1,23 @@
+// backtony.github.io(부제)
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+:docinfo: shared-head
+:sectnums:
+
+= Club Creation API
+
+=== 생성 요청
+include::adocs/Pending-Create.adoc[]
+
+=== 요청 목록 조회
+include::adocs/Pending-Read.adoc[]
+
+=== 요청 승낙
+include::adocs/Pending-Accept.adoc[]
+
+=== 요청 거절
+include::adocs/Pending-Deny.adoc[]

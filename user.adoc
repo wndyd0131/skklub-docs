@@ -1,0 +1,28 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+:docinfo: shared-head
+:sectnums:
+
+= Authentication API
+
+=== 유저 로그인
+include::{snippets}/User-Login/http-request.adoc[]
+include::{snippets}/User-Login/http-response.adoc[]
+include::{snippets}/User-Login/query-parameters.adoc[]
+
+=== 유저 정보 수정
+include::{snippets}/User-Update/http-request.adoc[]
+include::{snippets}/User-Update/http-response.adoc[]
+include::{snippets}/User-Update/query-parameters.adoc[]
+
+=== 유저 로그아웃
+include::{snippets}/User-Logout/http-request.adoc[]
+include::{snippets}/User-Logout/http-response.adoc[]
+
+=== Token Refresh
+include::{snippets}/RefreshToken-Refresh/http-request.adoc[]
+include::{snippets}/RefreshToken-Refresh/http-response.adoc[]
